@@ -48,6 +48,23 @@
     
     <script src="js/app.js"></script>
 
+    <style>
+        #slider {
+            width: 100%; /* Makes the slider width responsive to its container */
+            max-width: 800px; /* Optional: maximum width */
+            height: auto; /* Height adjusts based on content */
+            margin: 20px auto; /* Centers the slider horizontally */
+            position: relative;
+            overflow: hidden; /* Prevents images from overflowing the bounds of the slider */
+        }
+        
+        .slider-img {
+            width: 100%; /* Ensures images scale to fit the slider */
+            height: auto; /* Maintains aspect ratio */
+            display: block; /* Removes any unwanted space below images */
+        }
+    </style>
+
 </head>
 
 <body>
@@ -239,21 +256,19 @@
             let currentIndex = 0;
         
             function displayNextImage() {
-                const imgElement = document.createElement('img');
-                imgElement.src = images[currentIndex];
-                const slider = document.getElementById('slider');
-                slider.innerHTML = '';  // Clear previous image
-                slider.appendChild(imgElement);
-        
-                // Update index for the next image
-                currentIndex = (currentIndex + 1) % images.length;
-            }
-        
-            // Change image every 3 seconds
-            setInterval(displayNextImage, 3000);
-        
-            // Initialize first image display
-            displayNextImage();
+            const imgElement = document.createElement('img');
+            imgElement.src = images[currentIndex];
+            imgElement.className = 'slider-img'; // Ensures correct styling
+            const slider = document.getElementById('slider');
+            slider.innerHTML = '';  // Clear previous image
+            slider.appendChild(imgElement);
+
+            // Update index for the next image
+            currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        setInterval(displayNextImage, 3000); // Change image every 3 seconds
+        displayNextImage(); // Initialize first image display
         </script>
 
 <!-- 
