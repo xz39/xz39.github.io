@@ -1,0 +1,256 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Retribooru</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://jonbarron.info/mipnerf/img/rays_square.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jonbarron.info/mipnerf/"/>
+    <meta property="og:title" content="mip-NeRF" />
+    <meta property="og:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="mip-NeRF" />
+    <meta name="twitter:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
+    <meta name="twitter:image" content="https://jonbarron.info/mipnerf/img/rays_square.png" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+
+    <style>
+        #slider {
+            width: 100%; /* Makes the slider width responsive to its container */
+            max-width: 800px; /* Optional: maximum width */
+            height: auto; /* Height adjusts based on content */
+            margin: 20px auto; /* Centers the slider horizontally */
+            position: relative;
+            overflow: hidden; /* Prevents images from overflowing the bounds of the slider */
+        }
+        
+        .slider-img {
+            width: 100%; /* Ensures images scale to fit the slider */
+            height: auto; /* Maintains aspect ratio */
+            display: block; /* Removes any unwanted space below images */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Video Understanding and Soccernet
+                <small>
+                    <!-- ICCV 2021 (Oral, Best Paper Honorable Mention) -->
+                </small>
+            </h2>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://jonbarron.info/">
+                          Jonathan T. Barron
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="http://bmild.github.io/">
+                            Ben Mildenhall
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="http://matthewtancik.com/">
+                          Matthew Tancik
+                        </a>
+                        </br>UC Berkeley
+                    </li><br>
+                    <li>
+                        <a href="https://phogzone.com/">
+                          Peter Hedman
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="http://www.ricardomartinbrualla.com/">
+                          Ricardo Martin-Brualla
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="https://pratulsrinivasan.github.io/">
+                          Pratul P. Srinivasan
+                        </a>
+                        </br>Google
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+
+<!-- 
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2103.13415">
+                            <image src="img/mip_paper_image.jpg" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/EpH175PY1A0">
+                            <image src="img/youtube_icon.png" height="60px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/google/mipnerf">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div> -->
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Motivation
+                </h3>
+                <!-- <image src="img/rays.png" class="img-responsive" alt="overview"><br> -->
+                <p class="text-justify">
+                    Understand videos semantically and temporally. Videos and events can then be tagged and warehoused. Result videos can be used for retrieval.
+                </p>
+            </div>
+        </div>
+
+<!-- 
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/EpH175PY1A0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Results</h3>
+                <p class="text-justify">
+                    1st place winner presentation for both challenges, 
+                    Soccernet Event Detection and Replay Grounding,
+                    2021 CVPR ActivityNet workshop <br>
+                    We released the features and later open-sourced an equivalent training pipeline based on Baidu's deep learning framework PaddlePaddle. <br>
+                    The winning features became the base for all 2022 and 2023 challenge top 3 winners
+                </p>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://youtu.be/5fM6wxw760s?t=1461" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+                <p></p>
+
+                <p class="text-justify">
+                    In 2022, we co-hosted the tracking challenge and provided the baseline methods for detection and tracking.
+                </p>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://youtu.be/nxywN6X_0oE?si=n4tHGp6x4WiZqRcg&t=455" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+
+                <!-- <p class="text-justify">
+                    Typical positional encoding (as used in Transformer networks and Neural Radiance Fields) maps a single point in space to a feature vector, where each element is generated by a sinusoid with an exponentially increasing frequency:
+                </p> -->
+                <!-- <p style="text-align:center;">
+                    <img src="retribooru_faces/test.png" width=100%>
+                </p> -->
+                <!-- <video id="v0" width="100%" autoplay loop muted>
+                  <source src="img/pe_anim_horiz.mp4" type="video/mp4" />
+                </video>
+                <p class="text-justify">
+                    Here, we show how these feature vectors change as a function of a point moving in 1D space.
+                    <br><br>
+                    Our <em>integrated positional encoding</em> considers Gaussian <em>regions</em> of space, rather than infinitesimal points. This provides a natural way to input a "region" of space as query to a coordinate-based neural network, allowing the network to reason about sampling and aliasing. The expected value of each positional encoding component has a simple closed form:
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/ipe_eqn_under_pad.png" height="30px" class="img-responsive">
+                </p> -->
+                <!-- <video id="v0" width="100%" autoplay loop muted>
+                  <source src="img/ipe_anim_horiz.mp4" type="video/mp4" />
+                </video> -->
+                <!-- <p class="text-justify">
+                    We can see that when considering a wider region, the higher frequency features automatically shrink toward zero, providing the network with lower-frequency inputs. As the region narrows, these features converge to the original positional encoding.
+                </p> -->
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Repos</h3>
+                <a href="https://github.com/baidu-research/vidpress-sports">
+                    Soccernet Features
+                </a>
+                <p></p>
+                <a href="https://github.com/baidu-research/Soccernet-features">
+                    Feature Extraction training code based on PaddlePaddle
+                </a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>Publications</h3>
+                - Feature Combination Meets Attention <br>
+                - ASM-Loc: Action-Aware Segment Modeling for Weakly-Supervised Temporal Action Localization <br>
+                - SoccerNet-Tracking: Multiple Object Tracking Dataset and Benchmark in Soccer Videos <br>
+                - SoccerNet 2022 Challenges Result <br>
+                - SoccerNet game state reconstruction: End-to-end athlete tracking and identification on a minimap <br>
+            </div>
+        </div>
+</body>
+</html>

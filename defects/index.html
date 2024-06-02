@@ -1,0 +1,544 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Retribooru</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+        <!--FACEBOOK-->
+    <meta property="og:image" content="https://jonbarron.info/mipnerf/img/rays_square.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="682">
+    <meta property="og:image:height" content="682">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://jonbarron.info/mipnerf/"/>
+    <meta property="og:title" content="mip-NeRF" />
+    <meta property="og:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
+
+        <!--TWITTER-->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="mip-NeRF" />
+    <meta name="twitter:description" content="Project page for Mip-NeRF: A Multiscale Representation for Anti-Aliasing Neural Radiance Fields." />
+    <meta name="twitter:image" content="https://jonbarron.info/mipnerf/img/rays_square.png" />
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+
+    <style>
+        #slider {
+            width: 100%; /* Makes the slider width responsive to its container */
+            max-width: 800px; /* Optional: maximum width */
+            height: auto; /* Height adjusts based on content */
+            margin: 20px auto; /* Centers the slider horizontally */
+            position: relative;
+            overflow: hidden; /* Prevents images from overflowing the bounds of the slider */
+        }
+        
+        .slider-img {
+            width: 100%; /* Ensures images scale to fit the slider */
+            height: auto; /* Maintains aspect ratio */
+            display: block; /* Removes any unwanted space below images */
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                Automatic generation defects assesment 
+                <br> through VLM
+                <small>
+                    <!-- ICCV 2021 (Oral, Best Paper Honorable Mention) -->
+                </small>
+            </h2>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://jonbarron.info/">
+                          Jonathan T. Barron
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="http://bmild.github.io/">
+                            Ben Mildenhall
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="http://matthewtancik.com/">
+                          Matthew Tancik
+                        </a>
+                        </br>UC Berkeley
+                    </li><br>
+                    <li>
+                        <a href="https://phogzone.com/">
+                          Peter Hedman
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="http://www.ricardomartinbrualla.com/">
+                          Ricardo Martin-Brualla
+                        </a>
+                        </br>Google
+                    </li>
+                    <li>
+                        <a href="https://pratulsrinivasan.github.io/">
+                          Pratul P. Srinivasan
+                        </a>
+                        </br>Google
+                    </li>
+                </ul>
+            </div>
+        </div> -->
+
+<!-- 
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="https://arxiv.org/abs/2103.13415">
+                            <image src="img/mip_paper_image.jpg" height="60px">
+                                <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/EpH175PY1A0">
+                            <image src="img/youtube_icon.png" height="60px">
+                                <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/google/mipnerf">
+                            <image src="img/github.png" height="60px">
+                                <h4><strong>Code</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div> -->
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Motivation
+                </h3>
+                <!-- <image src="img/rays.png" class="img-responsive" alt="overview"><br> -->
+                <p class="text-justify">
+                    Generation defects (corrupt faces, defected hands etc.) need to be captured and handled for automatic pipelines involving generative models. Whole image metrics lack detection of defects in detail.
+                </p>
+            </div>
+        </div>
+
+<!-- 
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/EpH175PY1A0" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Contrastive defects for VLM
+                </h3>
+                <image src="img/defective_hands_1.png" class="img-responsive"><br>
+                <image src="img/defective_hands_2.png" class="img-responsive"><br>
+
+                <!-- <p class="text-justify">
+                    One can input up to four images of a person and a text prompt to generate stylized avatar images instantly.
+                    The demo below loops through 149 sample images.
+                    The first dozens demonstrate same prompt with different identities, then various styles are demonstrated.
+                </p> -->
+                <!-- <p class="text-justify">
+                    Typical positional encoding (as used in Transformer networks and Neural Radiance Fields) maps a single point in space to a feature vector, where each element is generated by a sinusoid with an exponentially increasing frequency:
+                </p> -->
+                <!-- <p style="text-align:center;">
+                    <img src="retribooru_faces/test.png" width=100%>
+                </p> -->
+                <!-- <video id="v0" width="100%" autoplay loop muted>
+                  <source src="img/pe_anim_horiz.mp4" type="video/mp4" />
+                </video>
+                <p class="text-justify">
+                    Here, we show how these feature vectors change as a function of a point moving in 1D space.
+                    <br><br>
+                    Our <em>integrated positional encoding</em> considers Gaussian <em>regions</em> of space, rather than infinitesimal points. This provides a natural way to input a "region" of space as query to a coordinate-based neural network, allowing the network to reason about sampling and aliasing. The expected value of each positional encoding component has a simple closed form:
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/ipe_eqn_under_pad.png" height="30px" class="img-responsive">
+                </p> -->
+                <!-- <video id="v0" width="100%" autoplay loop muted>
+                  <source src="img/ipe_anim_horiz.mp4" type="video/mp4" />
+                </video> -->
+                <!-- <p class="text-justify">
+                    We can see that when considering a wider region, the higher frequency features automatically shrink toward zero, providing the network with lower-frequency inputs. As the region narrows, these features converge to the original positional encoding.
+                </p> -->
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <!-- <h3>
+                    Results on faces
+                </h3>
+                <!-- <p class="text-justify">
+                    Typical positional encoding (as used in Transformer networks and Neural Radiance Fields) maps a single point in space to a feature vector, where each element is generated by a sinusoid with an exponentially increasing frequency:
+                </p> -->
+                <!-- <p style="text-align:center;">
+                    <img src="retribooru_faces/test.png" height="320px">
+                </p> -->
+                <!-- <video id="v0" width="100%" autoplay loop muted>
+                  <source src="img/pe_anim_horiz.mp4" type="video/mp4" />
+                </video>
+                <p class="text-justify">
+                    Here, we show how these feature vectors change as a function of a point moving in 1D space.
+                    <br><br>
+                    Our <em>integrated positional encoding</em> considers Gaussian <em>regions</em> of space, rather than infinitesimal points. This provides a natural way to input a "region" of space as query to a coordinate-based neural network, allowing the network to reason about sampling and aliasing. The expected value of each positional encoding component has a simple closed form:
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/ipe_eqn_under_pad.png" height="30px" class="img-responsive">
+                </p> -->
+                <!-- <video id="v0" width="100%" autoplay loop muted>
+                  <source src="img/ipe_anim_horiz.mp4" type="video/mp4" />
+                </video> -->
+                <!-- <p class="text-justify">
+                    We can see that when considering a wider region, the higher frequency features automatically shrink toward zero, providing the network with lower-frequency inputs. As the region narrows, these features converge to the original positional encoding.
+                </p> -->
+                <p id="slider" style="text-align:center;">
+                    <!-- <div  width=100%>
+                        <!-- Images will be loaded here by JavaScript -->
+                    <!-- </div> --> -->
+                </p>
+
+            </div>
+        </div>
+
+        <script>
+            // List of images to loop through
+            const images = [
+            'retribooru_faces/FireShot Capture 274 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 275 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 276 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 277 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 278 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 279 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 280 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 282 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 283 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 284 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 286 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 287 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 288 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 289 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 290 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 291 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 292 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 293 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 294 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 295 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 296 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 297 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 298 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 299 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 300 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 301 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 302 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 303 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 304 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 305 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 306 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 307 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 308 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 309 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 310 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 311 - Gradio - 7a49e25522177309c8.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 311 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 312 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 313 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 314 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 315 - Gradio - 44bfb8c0992bd34fab.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 315 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 316 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 317 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 318 - Gradio - d9733bd5496e2cfc24.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 318 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 319 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 320 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 321 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 322 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 323 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 324 - Gradio - b4e96cc6087f218fa8.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 324 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 325 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 326 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 327 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 328 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 329 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 330 - Gradio - d9733bd5496e2cfc24.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 330 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 331 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 332 - Gradio - 44bfb8c0992bd34fab.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 332 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 333 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 334 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 335 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 336 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 337 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 338 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 339 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 340 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 341 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 342 - Gradio - effbd6748c570b5b5e.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 342 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 343 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 344 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 345 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 346 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 347 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 348 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 349 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 350 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 351 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 352 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 353 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 354 - Gradio - 44bfb8c0992bd34fab.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 354 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 355 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 356 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 357 - Gradio - b4e96cc6087f218fa8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 358 - Gradio - 7a49e25522177309c8.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 358 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 359 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 360 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 361 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 362 - Gradio - 2cda806c387add4a01.gradio.live.png',
+            'retribooru_faces/FireShot Capture 363 - Gradio - d9733bd5496e2cfc24.gradio.live.png',
+            'retribooru_faces/FireShot Capture 364 - Gradio - 7a49e25522177309c8.gradio.live.png',
+            'retribooru_faces/FireShot Capture 365 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 366 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 367 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 368 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 369 - Gradio - 3f28ed15c3f248919c.gradio.live.png',
+            'retribooru_faces/FireShot Capture 370 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 371 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 372 - Gradio - effbd6748c570b5b5e.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 372 - Gradio - effbd6748c570b5b5e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 373 - Gradio - 37a9395687a042984f.gradio.live.png',
+            'retribooru_faces/FireShot Capture 374 - Gradio - 44bfb8c0992bd34fab.gradio.live.png',
+            'retribooru_faces/FireShot Capture 375 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 376 - Gradio - 5a61d145fefae20fe2.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 376 - Gradio - 5a61d145fefae20fe2.gradio.live.png',
+            'retribooru_faces/FireShot Capture 377 - Gradio - 1427f22207f551566e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 378 - Gradio - 6bb2081ef4275bddd3.gradio.live.png',
+            'retribooru_faces/FireShot Capture 379 - Gradio - 80e15b9739316414fc.gradio.live.png',
+            'retribooru_faces/FireShot Capture 380 - Gradio - 587e2f8ec6ccc9d867.gradio.live.png',
+            'retribooru_faces/FireShot Capture 381 - Gradio - 0b11a2e3f94a1b639d.gradio.live.png',
+            'retribooru_faces/FireShot Capture 382 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 383 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 384 - Gradio - 0b11a2e3f94a1b639d.gradio.live.png',
+            'retribooru_faces/FireShot Capture 385 - Gradio - 6bb2081ef4275bddd3.gradio.live.png',
+            'retribooru_faces/FireShot Capture 386 - Gradio - 80e15b9739316414fc.gradio.live.png',
+            'retribooru_faces/FireShot Capture 387 - Gradio - 5a61d145fefae20fe2.gradio.live.png',
+            'retribooru_faces/FireShot Capture 388 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 389 - Gradio - 0b11a2e3f94a1b639d.gradio.live.png',
+            'retribooru_faces/FireShot Capture 390 - Gradio - 1427f22207f551566e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 391 - Gradio - 80e15b9739316414fc.gradio.live.png',
+            'retribooru_faces/FireShot Capture 392 - Gradio - 2eff4f56009276a351.gradio.live.png',
+            'retribooru_faces/FireShot Capture 393 - Gradio - 587e2f8ec6ccc9d867.gradio.live.png',
+            'retribooru_faces/FireShot Capture 394 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 395 - Gradio - 0b11a2e3f94a1b639d.gradio.live.png',
+            'retribooru_faces/FireShot Capture 396 - Gradio - 1427f22207f551566e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 397 - Gradio - 6bb2081ef4275bddd3.gradio.live.png',
+            'retribooru_faces/FireShot Capture 398 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 399 - Gradio - 80e15b9739316414fc.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 399 - Gradio - 80e15b9739316414fc.gradio.live.png',
+            'retribooru_faces/FireShot Capture 400 - Gradio - 2eff4f56009276a351.gradio.live.png',
+            'retribooru_faces/FireShot Capture 401 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 402 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            'retribooru_faces/FireShot Capture 403 - Gradio - 5a61d145fefae20fe2.gradio.live.png',
+            'retribooru_faces/FireShot Capture 404 - Gradio - 1427f22207f551566e.gradio.live.png',
+            'retribooru_faces/FireShot Capture 405 - Gradio - 6bb2081ef4275bddd3.gradio.live.png',
+            'retribooru_faces/FireShot Capture 406 - Gradio - 80e15b9739316414fc.gradio.live.png',
+            'retribooru_faces/FireShot Capture 407 - Gradio - 2eff4f56009276a351.gradio.live.png',
+            'retribooru_faces/FireShot Capture 408 - Gradio - 587e2f8ec6ccc9d867.gradio.live.png',
+            'retribooru_faces/FireShot Capture 409 - Gradio - ad9df30b96504da2af.gradio.live (1).png',
+            'retribooru_faces/FireShot Capture 409 - Gradio - ad9df30b96504da2af.gradio.live.png',
+            ];
+            let currentIndex = 0;
+        
+            function displayNextImage() {
+            const imgElement = document.createElement('img');
+            imgElement.src = images[currentIndex];
+            imgElement.className = 'slider-img'; // Ensures correct styling
+            const slider = document.getElementById('slider');
+            slider.innerHTML = '';  // Clear previous image
+            slider.appendChild(imgElement);
+
+            // Update index for the next image
+            currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            setInterval(displayNextImage, 3000); // Change image every 3 seconds
+            displayNextImage(); // Initialize first image display
+        </script>
+
+<!-- 
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Mip-NeRF
+                </h3>
+                <p class="text-justify">
+                    We use integrated positional encoding to train NeRF to generate anti-aliased renderings. Rather than casting an infinitesimal ray through each pixel, we instead cast a full 3D <em>cone</em>. For each queried point along a ray, we consider its associated 3D conical frustum. Two different cameras viewing the same point in space may result in vastly different conical frustums, as illustrated here in 2D:
+                </p>
+                <p style="text-align:center;">
+                    <image src="img/scales_toy.png" class="img-responsive" alt="scales">
+                </p>
+                <p class="text-justify">
+                    In order to pass this information through the NeRF network, we fit a multivariate Gaussian to the conical frustum and use the integrated positional encoding described above to create the input feature vector to the network. 
+                </p>
+            </div>
+        </div>
+            
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+                <p class="text-justify">
+                    We train NeRF and mip-NeRF on a dataset with images at four different resolutions. Normal NeRF (left) is not capable of learning to represent the same scene at multiple levels of detail, with blurring in close-up shots and aliasing in low resolution views, while mip-NeRF (right) both preserves sharp details in close-ups and correctly renders the zoomed-out images.
+                </p>                
+                <br>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/ship_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/chair_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/lego_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/mic_sbs_path1.mp4" type="video/mp4" />
+                </video>
+                <br><br>
+                <p class="text-justify">
+                    We can also manipulate the integrated positional encoding by using a larger or smaller radius than the true pixel footprint, exposing the continuous level of detail learned within a single network:
+                </p>     
+                <video id="v0" width="100%" autoplay loop muted controls>
+                  <source src="img/lego_radii_manip_slider_200p.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Related links
+                </h3>
+                <p class="text-justify">
+                    <a href="https://en.wikipedia.org/wiki/Spatial_anti-aliasing">Wikipedia</a> provides an excellent introduction to spatial anti-aliasing techniques.
+                </p>
+                <p class="text-justify">
+                    Mipmaps were introduced by Lance Williams in his paper "Pyramidal Parametrics" (<a href="https://software.intel.com/sites/default/files/m/7/2/c/p1-williams.pdf">Williams (1983)</a>).
+                </p>
+                <p class="text-justify">
+                    <a href="https://dl.acm.org/doi/abs/10.1145/964965.808589">Amanatides (1984)</a> first proposed the idea of replacing rays with cones in computer graphics rendering. 
+                </p>
+                <p class="text-justify">
+                    The closely related concept of <em>ray differentials</em> (<a href="https://graphics.stanford.edu/papers/trd/">Igehy (1999)</a>) is used in most modern renderers to antialias textures and other material buffers during ray tracing.
+                </p>
+                <p class="text-justify">
+                    Cone tracing has been used along with prefiltered voxel-based representations of scene geometry for speeding up indirect illumination calculations in <a href="https://research.nvidia.com/sites/default/files/publications/GIVoxels-pg2011-authors.pdf">Crassin et al. (2011)</a>.
+                </p>
+                <p class="text-justify">
+                    Mip-NeRF was implemented on top of the <a href="https://github.com/google-research/google-research/tree/master/jaxnerf">JAXNeRF</a> codebase.
+                </p>
+            </div>
+        </div>
+        
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+                    <textarea id="bibtex" class="form-control" readonly>
+@article{barron2021mipnerf,
+    title={Mip-NeRF: A Multiscale Representation 
+           for Anti-Aliasing Neural Radiance Fields},
+    author={Jonathan T. Barron and Ben Mildenhall and 
+            Matthew Tancik and Peter Hedman and 
+            Ricardo Martin-Brualla and Pratul P. Srinivasan},
+    journal={ICCV},
+    year={2021}
+}</textarea>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                We thank Janne Kontkanen and David Salesin for their comments on the text, Paul Debevec for constructive discussions, and Boyang Deng for JaxNeRF. 
+                    <br>
+                MT is funded by an NSF Graduate Fellowship.
+                    <br>
+                The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+                </p>
+            </div>
+        </div>
+    </div> -->
+</body>
+</html>
