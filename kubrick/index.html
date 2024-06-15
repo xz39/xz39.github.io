@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Authorship</title>
+    <style>
+        .blue-text {
+            color: blue; /* This sets the color of the text to blue */
+        }
+        .larger-font {
+            font-size: 16px; /* Adjust the size as needed */
+        }
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers the content vertically */
+            width: 100%; /* Adjust this if necessary */
+        }
+        .regular-size-video, .text-content, .video-prompt {
+            width: 640px;  /* This width should match the width of your video or image presentation */
+            box-sizing: border-box; /* Ensures padding and borders are included in the width */
+        }
+        .text-content {
+            text-align: left;
+            margin-bottom: 20px; /* Adds space between text and video */
+        }
+        .video-prompt {
+            text-align: left;
+            padding: 10px 20px;
+            background-color: #d0d5ec;
+            margin-bottom: 9px;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .list-inline {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .list-inline li {
+            margin: 10px 20px;
+            align-items: center;
+            text-align: center;
+        }
+        .author a {
+            display: block; /* Makes the link block level for better click area */
+            color: #007bff; /* Link color */
+            text-decoration: none; /* No underline */
+            font-size: 1.1em;
+        }
+        .affiliation {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Kubrick: Multimodal Agent Collaborations for Video Generation</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+    <div class="content-container" id="main">
+
+        <div class="text-content text-center"> <!-- Applies the styling for text width and centers the text -->
+            <h1><b>Kubrick: Multimodal Agent Collaborations<br>
+                for Video Generation</b></h1>            
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li class="author">
+                        <a href="https://Arking1995.github.io/" target="_blank">Liu He</a>
+                        <span class="affiliation">Purdue University</span>
+                    </li>
+                    <li class="author">
+                        <a href="https://scholar.google.com/citations?user=IUj5R3EAAAAJ&hl=en" target="_blank">Yizhi Song</a>
+                        <span class="affiliation">Purdue University</span>
+                    </li>
+                    <!-- <li class="author">
+                        <a href="https://scholar.google.com/citations?user=KcWMpMEAAAAJ&hl=en" target="_blank">Jiayi Liu</a>
+                        <span class="affiliation">Purdue University</span>
+                    </li> -->
+                    <li class="author">
+                        <a href="https://www.huanghejun.com" target="_blank">Hejun Huang</a>
+                        <span class="affiliation">Baidu USA</span>
+                    </li>
+                    <li class="author">
+                        <a href="https://scholar.google.com/citations?user=jd1S28YAAAAJ&hl=en&oi=sra" target="_blank">Xin Zhou</a>
+                        <span class="affiliation">Baidu USA</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-center">
+        <div class="nav-item">
+            <img src="./index_files/arxiv.jpg" alt="Paper Coming Soon">
+            <h4>Paper Coming Soon</h4>
+        </div>
+    </div>
+
+
+    <div class="text-content">
+        <h2>Eureka!</h2>
+        <p>Build the first multimodal agent-based video generation pipeline through 3D engine scripting.</p>
+        <!-- <h3>How it works</h3> -->
+        <!-- <p>Given any text prompt, multimodal agents collaborate to produce detailed Blender scripts to generate video with plausible character and motion consistency in any length.</p> -->
+        <h3>Demo</h3>
+    </div>
+            
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>back of Spiderman, running on the rooftop,  city night, (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/spiderman_896_512.mp4" type="video/mp4">
+        </video>
+    </div>
+
+
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera zoom out, man looking like Elon Musk, cheering and waving his arms, rocket, cybertruck behind, high quality, fantastic illuminations, cinematic lighting, photorealistic, highly detailed, high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/Elon_00004-3491119060_trimmed.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera tilt up, into man looking like Elon Musk, cheering and waving his arms, rocket, cybertruck behind, high quality, fantastic illuminations, cinematic lighting, photorealistic, highly detailed, high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/Elon_00003-1253581027.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera zoom into man looking like Elon Musk, cheering with his arms up, rocket, cybertruck behind, high quality, fantastic illuminations, cinematic lighting, photorealistic, highly detailed, high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/Elon_5_1_00018-39335775_0.75speed.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>anime character dva relaxing in her bedroom, sitting down to snack and play video games.</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/dva_00031-237821270_compressed.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>A wounded female knight faltering and dramatically collapsing in a poisonous forest.</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/knight_00027-70433827_compressed.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera zooms out of princess dancing and spinning on stage, blonde hair, (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_1_1_dance_2024-06-09_20240609220928.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera raises from below stage, overlooking the stage, scanning from right to left, over princess dancing and spinning on the stage, (extremely dark:2), spotlight on theater stage, some light on the wall, dark studio, rim lighting, two tone lighting, dimly lit, low key,<lora:epi_noiseoffset2:1.5>  (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_1_camera_from_below_the_stage_2024-06-13_20240613103849.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera tilt up, blonde girl waving her hand on the stage,  (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_1_closeup_2024-06-10_20240610111006_reversed.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera pans from left to right, over theater stage, (extremely dark:2), some light on the wall, dark studio, rim lighting, two tone lighting, dimly lit, low key,<lora:epi_noiseoffset2:1.5>  (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_1_intro_2024-06-12_20240612222648.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>blonde princess walking towards a mirror, then rises straight up, light reflecting on the mirror, camera pans from right to left, (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_2_walking_rising_2024-06-12_20240612135059.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>blonde princess and black suit men stand and face each other, raising their arms, the camera flys to under the princess' face, tilting up, in a castle basement, (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_3_1_raise_hand_2024-06-09_20240609220703.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>blonde princess follows the black suit man, camera overlooking from behind the blonde princess,  in a castle basement, (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/trimmed_phantom_3_2_follow_2024-06-09.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera pans from left to right over a castle's basement, revealing a blonde princess standing facing a black suit men</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_3_basement_scene_2024-06-10_20240610114653.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>blonde princess singing in a classic victorian room, shadows on the wall</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_4_singing_1_2024-06-11_20240610234014.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>camera flys under blonde princess singing in a classic victorian room, shadows on the wall</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_4_singing_camera_2024-06-11_20240610234243.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>black suit man angry, far up and away from the theater stage. camera from behind. shadows on the stage curtain</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_5_phantom_angry_2024-06-12_20240612204235_reversed.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>a man in business casual and a blonde princess dancing on the stage, facing each other, camera flys close to the blonde princess</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_5_two_people_dance_2024-06-11_20240610233532.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>black suit man proposing to blonde princess, on a church roof, at night, moving light and shadows, (spotlight:2), extremely dark, dark studio, rim lighting, two tone lighting, dimly lit, low key,<lora:epi_noiseoffset2:1.5>  (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_6_roof_darker_2024-06-12_20240612185134.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>in an ancient castle, basement, fixed camera, phantom's mask spins to camera, dark studio, rim lighting, two tone lighting, dimly lit, low key,<lora:epi_noiseoffset2:1.5>  (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_7_mask_2024-06-11_20240610234713.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="video-prompt">
+        <h6>
+            <span style="font-size: larger; color: blue;"><strong>Input prompt: </strong></span>
+            <span style="font-size: larger;"><strong>in an ancient castle, basement, camera tilts down, black suit zombie walks down and drops dead, dark studio, rim lighting, two tone lighting, dimly lit, low key,<lora:epi_noiseoffset2:1.5>  (high quality:1.35),  (fantastic illuminations:1.35), cinematic lighting,  photorealistic, (highly detailed:1.2), high resolution RAW photo</strong></span>
+        </h6>
+    </div>
+    <div class="video-container">
+        <video class="regular-size-video" poster="img/teaser_frame.jpg" autoplay loop muted controls playsinline>
+          <source src="videos/phantom_7_phantom_die_2024-06-11_20240610234523.mp4" type="video/mp4">
+        </video>
+    </div>
+    
+    <div class="text-content"> <!-- This class is already styled for width and text alignment -->
+        <h3>Acknowledgements</h3>
+        <p>
+            Part of the work was done during Liu's internship at Baidu Research USA.
+        </p>
+        <p>
+            The website template was borrowed from 
+            <a href="http://mgharbi.com/">Michaël Gharbi</a>.
+        </p>
+    </div>
+
+</body>
+</html>
