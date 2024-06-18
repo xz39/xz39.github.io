@@ -146,19 +146,22 @@
     </div>
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Multi-agent Collaboration Frameworks</h2>
+        <h2 class="title is-3">Multi-agent Collaboration Framework</h2>
         <div class="content has-text-justified">
           <p>
-            Our video generation pipeline consists of multiple agent collaborations, and multi-modal reflection loops on both generated visual results and code libraries. The LLM Director agent takes the user query and transform it to detailed functional process. Then the LLM Programmer agent composes corresponding Blender python scripting given in-context function libraries for the set of basic processes. Each intermediate screenshots and video outputs will be reflected by VLLM Reviewer agent for key feature evaluation. The reflections will feedback to Programmer agent for recursive improving. In particular, the Reviewer agent and the function libraries will be instructed by retrieving public video tutorials and online documents to fasten the reflection loops.          </p>
+            Our video generation pipeline consists of multiple agent collaborations, and multi-modal reflection loops on both generated visual results and code libraries. The LLM Director agent takes the user query and transform it to detailed functional process. Then the LLM Programmer agent composes corresponding Blender python scripting given in-context function libraries for the set of basic processes. Each intermediate screenshots and video outputs will be reflected by VLLM Reviewer agent for key feature evaluation. The reflections will feedback to Programmer agent for recursive improving. In particular, the Reviewer agent and the function libraries will be instructed by retrieving public video tutorials and online documents to fasten the reflection loops. 
+          </p>
+
         </div>
-        <div class="column is-3 has-text-centered">
+        <h2 class="title is-3">Illustration of The Framework</h2>
+        <div class="content has-text-justified">
           <img src="./static/images/method3.png"
-               class="interpolation-image"
-               alt="Framework image."/>
-          <p>The Framework</p>
+            alt="Framework image."/>
         </div>
+
+
       </div>
-    </div>
+      </div>
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
@@ -180,6 +183,7 @@
         <p>
           Rendered with AnimateDiff.
         </p>
+        <br>
 
         <video autoplay controls muted loop playsinline height="100%">
           <source src="videos/Elon_00004-3491119060_trimmed.mp4" type="video/mp4">"
@@ -188,6 +192,7 @@
         <p>
           Camera Control Input Prompt: Zooming out, man looking like Elon Musk, cheering and waving his arms, rocket, cybertruck behind.
         </p>
+        <br>
 
         <video autoplay controls muted loop playsinline height="100%">
           <source src="videos/Elon_5_1_00018-39335775_0.75speed.mp4" type="video/mp4">"
@@ -196,6 +201,7 @@
         <p>
           Camera Control Input Prompt: Fast zooming in, man looking like Elon Musk, cheering and waving his arms, rocket, cybertruck behind.
         </p>
+        <br>
 
         <video autoplay controls muted loop playsinline height="100%">
           <source src="videos/dva_00031-237821270_compressed.mp4" type="video/mp4">"
@@ -205,6 +211,7 @@
         <p>
           Anime character dva relaxing in her bedroom, sitting down to snack and play video games.
         </p>
+        <br>
 
         <video autoplay controls muted loop playsinline height="100%">
           <source src="videos/knight_00027-70433827_compressed.mp4" type="video/mp4">"
@@ -214,6 +221,7 @@
         <p>
           A wounded female knight faltering and dramatically collapsing in a poisonous forest
         </p>
+        <br>
 
         <video autoplay controls muted loop playsinline height="100%">
           <source src="videos/phantom_5_two_people_dance_2024-06-11_20240610233532.mp4" type="video/mp4">"
@@ -223,6 +231,7 @@
         <p>
           A man in business casual and a blonde princess dancing on the stage, facing each other, camera flys close to the blonde princess.
         </p>
+        <br>
 
       </div>
       <br>
